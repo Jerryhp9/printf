@@ -22,30 +22,30 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-int ft_print_digit(long num, char *base)
+long	ft_print_digit(long long num, char *base)
 {
-	int		base_len;
-	long	n;
-	int count;
+	int	base_len;
+	int	count;
 
 	count = 0;
 	base_len = ft_strlen(base);
-	n = num;
-	if (n < 0)
+	if (num == 0)
+		return (ft_print_char('0'));
+	if (num < 0)
 	{
 		count += ft_print_char('-');
-		n = (n * -1);
+		num = (num * -1);
 	}
-	if (n >= base_len)
-		ft_print_digit(n / base_len, base);
-	// ft_print_char(n % base_len - '0') - it does not handle the mapping correctly
-	count += ft_print_char((base[n % base_len]));
-	return (n);
+	if (num >= base_len)
+		count += ft_print_digit(num / base_len, base);
+	count += ft_print_char((base[num % base_len]));
+	return (count);
 }
-
+// ft_print_char(n % base_len - '0') - it does not handle the mapping correctly
 // int main()
 // {
-// 	long nbr = 1234;
+// 	long nbr1 = -12345678812;
 // 	char *basee = "0123456789";
+// 	long nbr = 12345678812;
 // 	ft_print_digit(nbr, basee);
-// }
+// 	ft_print_digit(nbr1, basee);

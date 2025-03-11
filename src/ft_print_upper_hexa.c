@@ -14,12 +14,11 @@
 
 //hexadecimal is taking in a int and prints out a hexadecimal 
 
-int	ft_print_upper_hexa(int nbr)
+int	ft_print_upper_hexa(unsigned int nbr)
 {
-	int num;
+	unsigned int	num;
 
 	num = ft_print_digit(nbr, "0123456789ABCDEF");
-
 	return (num);
 }
 

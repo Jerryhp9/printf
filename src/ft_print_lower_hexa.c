@@ -14,12 +14,11 @@
 
 //hexadecimal is taking in a int and prints out a hexadecimal 
 
-int	ft_print_lower_hexa(int nbr)
+int	ft_print_lower_hexa(unsigned int nbr)
 {
-	int num;
+	unsigned int	num;
 
 	num = ft_print_digit(nbr, "0123456789abcdef");
-
 	return (num);
 }
 
@@ -28,4 +27,3 @@ int	ft_print_lower_hexa(int nbr)
 // 	unsigned int num = 1234;
 // 	ft_print_lower_hexa(num);
 // }
-

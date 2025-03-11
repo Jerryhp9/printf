@@ -14,26 +14,27 @@
 
 // In printf, a pointer can be print out by creating a pointer variable
 
-unsigned int ft_print_digit1(unsigned int n, char base)
+unsigned long	ft_print_digit1(unsigned long n, char *base) //643
 {
-	int count;
-	int nbr;
+	unsigned int	count;
+	size_t			base_len;
 
 	count = 0;
-	nbr = 0;
-	if ()
-
+	base_len = ft_strlen(base);
+	if (n < base_len)
+		return (ft_print_char(base[n]));
+	if (n >= base_len)
+		count += ft_print_digit1((n / base_len), base);
+	return (count + ft_print_digit1((n % base_len), base));
 }
 
-int ft_print_pointer(void *num)
+unsigned long	ft_print_pointer(void *num)
 {
-	int nbr;
+	int	nbr;
 
 	nbr = 0;
-
 	if (!num)
-		return ('\0');
-	
+		return (ft_print_str("(nil)"));
 	ft_print_str("0x");
 	nbr += ft_print_digit1((unsigned long)num, "0123456789abcdef");
 	return (nbr + 2);
@@ -51,7 +52,9 @@ int ft_print_pointer(void *num)
 
 // print out "0x" by explicitly command to print out "0x"
 
-// print out the rest of the address by printing out the digits in hexadecimals by a call fucntion (ft_print_digit)
+// print out the rest of the address by printing out the digits 
+
+//in hexadecimals by a call fucntion (ft_print_digit)
 
 // return 'nbr' to print out the address
 
@@ -59,6 +62,8 @@ int ft_print_pointer(void *num)
 
 // int main()
 // {
-// 	char *str = "abcdef";
-// 	printf("the address of this is %p", str);
+// 	int i = 16;
+// 	//char *str = "abcdef";
+// 	printf("the address of this is %p\n", 16);
+// 	ft_printf("the address of this is %p\n", 16);
 // }
